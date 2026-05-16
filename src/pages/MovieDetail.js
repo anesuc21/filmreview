@@ -13,8 +13,8 @@ export const MovieDetail = () => {
       setMovie(json);
       console.log(json);
     }
-    fetchMovie(params.id);
-  },[])
+    fetchMovie();
+  },[params.id])
 
   return (
     <main>
