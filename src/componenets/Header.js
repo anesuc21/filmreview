@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export const Header = () => {
     const[hidden,setHidden]=useState(true);
-    const activeClass = "text-base block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-500 md:p-0 md:dark:text-blue-500";
+    const activeClass = "text-base block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-400 md:p-0 md:dark:text-blue-400";
     const inActiveClass = "text-base block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
     const navigate = useNavigate();
     const handleSubmit = (event) =>{
@@ -22,7 +22,7 @@ export const Header = () => {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to ="/" className="flex items-center space-x-3 rtl:space-x-reverse">
             <img src={Logo} className="h-12" alt="review" />
-            <span className="self-center text-blue text-4xl font-bold whitespace-nowrap ">FilmScore</span>
+            <span className="self-center text-blue shadow-xl text-4xl font-bold whitespace-nowrap text-yellow-700 ">FilmScore</span>
         </Link>
 
         <div className="flex md:order-2">
@@ -64,19 +64,19 @@ export const Header = () => {
                 </form>
             </div>
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li className="px-4">
+                <li className="px-4 py-2">
                 <NavLink to="/" className= {({isActive})=>isActive ? activeClass:inActiveClass} end>Home</NavLink>
                 </li>
-                <li className="px-4">
+                <li className="px-4 py-2">
                 <NavLink to="/movies/review" className={({isActive})=>isActive ? activeClass:inActiveClass}>Review</NavLink>
                 </li>
-                <li className="px-4">
+                <li className="px-4 py-2">
                 <NavLink to="/movies/popular" className={({isActive})=>isActive ? activeClass:inActiveClass}>Popular</NavLink>
                 </li>
-                <li className="px-4">
+                <li className="px-4 py-2">
                 <NavLink to="/movies/top" className={({isActive})=>isActive ? activeClass:inActiveClass}>Top</NavLink>
                 </li>
-                <li className="px-4">
+                <li className="px-4 py-2">
                 <NavLink to="/movies/upcoming" className={({isActive})=>isActive ? activeClass:inActiveClass}>Upcoming</NavLink>
                 </li>
             </ul>
