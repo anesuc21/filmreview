@@ -22,7 +22,7 @@ export const Header = () => {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <Link to ="/" className="flex items-center space-x-3 rtl:space-x-reverse">
             <img src={Logo} className="h-12" alt="review" />
-            <span className="self-center text-blue text-4xl font-bold whitespace-nowrap ">Film Score</span>
+            <span className="self-center text-blue text-4xl font-bold whitespace-nowrap ">FilmScore</span>
         </Link>
 
         <div className="flex md:order-2">
