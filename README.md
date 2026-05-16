@@ -1,5 +1,7 @@
 [Film Review Web App Direct Link](https://filmscore-review.netlify.app)
 
+A movie reviewing website. Created using react, tailwind css and flowbite.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
