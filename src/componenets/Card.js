@@ -45,7 +45,7 @@ export const Card = ({movie}) => {
 
       {/* 5 star */}
       <div className="flex items-center mt-4">
-        <span className="text-sm font-medium w-14">5 star</span>
+        <span className="text-sm font-medium w-14 dark:text-white">5 star</span>
 
         <div className="w-full h-4 mx-4 bg-gray-300 rounded">
           <div
@@ -57,7 +57,7 @@ export const Card = ({movie}) => {
       </div>
 
       {/* 4 star */}
-      <div className="flex items-center mt-4">
+      <div className="flex items-center mt-4 dark:text-white">
         <span className="text-sm font-medium w-14">4 star</span>
 
         <div className="w-full h-4 mx-4 bg-gray-300 rounded">
@@ -71,7 +71,7 @@ export const Card = ({movie}) => {
       </div>
 
       {/* 3 star */}
-      <div className="flex items-center mt-4">
+      <div className="flex items-center mt-4 dark:text-white">
         <span className="text-sm font-medium w-14">3 star</span>
 
         <div className="w-full h-4 mx-4 bg-gray-300 rounded">
@@ -85,7 +85,7 @@ export const Card = ({movie}) => {
       </div>
 
       {/* 2 star */}
-      <div className="flex items-center mt-4">
+      <div className="flex items-center mt-4 dark:text-white">
         <span className="text-sm font-medium w-14">2 star</span>
 
         <div className="w-full h-4 mx-4 bg-gray-300 rounded">
@@ -99,7 +99,7 @@ export const Card = ({movie}) => {
       </div>
 
       {/* 1 star */}
-      <div className="flex items-center mt-4">
+      <div className="flex items-center mt-4 dark:text-white">
         <span className="text-sm font-medium w-14">1 star</span>
 
         <div className="w-full h-4 mx-4 bg-gray-300 rounded">
