@@ -1,4 +1,4 @@
-[website link](filmscore-review.netlify.app)
+[Film Review Web App Direct Link](filmscore-review.netlify.app)
 
 # Getting Started with Create React App
 
