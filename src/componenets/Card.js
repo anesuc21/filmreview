@@ -104,7 +104,7 @@ export const Card = ({ movie }) => {
 
           {/* REVIEW INPUT */}
           <textarea
-            className="w-full mt-4 p-2 border border-gray-300 rounded-lg text-sm"
+            className="w-full mt-4 p-2 border border-gray-300 rounded-lg text-sm dark: text"
             placeholder="Write your review..."
             value={reviewText}
             onChange={(e) => setReviewText(e.target.value)}
