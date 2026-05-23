@@ -3,7 +3,7 @@ import {AllRoutes} from "./routes/AllRoutes";
 import { Header, Footer } from './componenets';
 function App() {
   return (
-    <div className="App">
+    <div className="App min-h-screen dark:bg-gray-900  ">
       <Header/>
       <AllRoutes />
       <Footer/>
