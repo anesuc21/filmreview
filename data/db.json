@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "email": "thecoolpizzadude@gmail.com",
+      "password": "$2a$10$ol1/QbnpdNQTjBcHq1niKOxp8OJUEcZY8ChPKzb7erxD9b6e/WC.S",
+      "name": "stev",
+      "id": 1
+    },
+    {
+      "email": "walter.chibowora@students.mq.edu.au",
+      "password": "$2a$10$GG0f40/PimQkI7dC7yBGDe5u2jjpz3/jEdx7UhrANRs8bdUugZqxG",
+      "name": "anesu",
+      "id": 2
+    }
+  ]
+}

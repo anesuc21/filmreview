@@ -113,7 +113,7 @@ export const Card = ({ movie }) => {
           {/* SAVE BUTTON */}
           <button
             onClick={handleSaveReview}
-            className="mt-3 w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+            className="mt-3 w-full px-4 py-2 bg-gradient-to-r from-red-300 via-orange-400 to-yellow-200 text-white rounded-lg hover:bg-yellow-700"
           >
             Save Review
           </button>

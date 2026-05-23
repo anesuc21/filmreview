@@ -1,9 +1,58 @@
+import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+
 export const Register = () => {
+    const navigate = useNavigate();
+
+    async function handleRegister(event) {
+    event.preventDefault();
+
+    const authDetail = {
+        name: event.target.name.value,
+        email: event.target.email.value,
+        password: event.target.password.value,
+    };
+
+    const response = await fetch("http://localhost:8000/register", {
+        method: "POST",
+        headers: {
+        "content-Type": "application/json",
+        },
+        body: JSON.stringify(authDetail),
+    });
+
+    const data = await response.json();
+    data.accessToken ? navigate("/"): toast.error(data);
+    console.log(data);
+}
   return (
     <main>
         <section className="max-w-7xl mx-auto py-7">
         <br/>
-        <form className="max-w-md mx-auto bg-white p-6 rounded-2xl shadow">
+        <form onSubmit = {handleRegister} className="max-w-md mx-auto bg-white p-6 rounded-2xl shadow">
+            {/* Name */}
+            <div className="mb-5">
+
+                <div>
+                <label
+                    htmlFor="first_name"
+                    className="block mb-2 text-sm font-medium text-gray-700"
+                >
+                  Name
+                </label>
+
+                <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    className="block w-full px-4 py-3 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="John"
+                    required
+                />
+                </div>
+            </div>
+            
+            
             {/* EMAIL */}
             <div className="mb-5">
                 <label
@@ -61,104 +110,9 @@ export const Register = () => {
                 />
             </div>
 
-            {/* FIRST + LAST NAME */}
-            <div className="grid md:grid-cols-2 gap-5">
 
-                <div>
-                <label
-                    htmlFor="first_name"
-                    className="block mb-2 text-sm font-medium text-gray-700"
-                >
-                    First Name
-                </label>
-
-                <input
-                    type="text"
-                    name="first_name"
-                    id="first_name"
-                    className="block w-full px-4 py-3 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="John"
-                    required
-                />
-                </div>
-
-                <div>
-                <label
-                    htmlFor="last_name"
-                    className="block mb-2 text-sm font-medium text-gray-700"
-                >
-                    Last Name
-                </label>
-
-                <input
-                    type="text"
-                    name="last_name"
-                    id="last_name"
-                    className="block w-full px-4 py-3 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Doe"
-                    required
-                />
-                </div>
-
-            </div>
-
-            {/* PHONE + COMPANY */}
-            <div className="grid md:grid-cols-2 gap-5 mt-5">
-
-                <div>
-                <label
-                    htmlFor="phone"
-                    className="block mb-2 text-sm font-medium text-gray-700"
-                >
-                    Phone Number
-                </label>
-
-                <input
-                    type="tel"
-                    name="phone"
-                    id="phone"
-                    className="block w-full px-4 py-3 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="123-456-7890"
-                    required
-                />
-                </div>
-
-                <div>
-                <label
-                    htmlFor="company"
-                    className="block mb-2 text-sm font-medium text-gray-700"
-                >
-                    Company
-                </label>
-
-                <input
-                    type="text"
-                    name="company"
-                    id="company"
-                    className="block w-full px-4 py-3 text-sm text-gray-900 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Google"
-                    required
-                />
-                </div>
-
-            </div>
-
-            {/* TERMS */}
-            <div className="flex items-center mt-6 mb-6">
-                <input
-                id="remember"
-                type="checkbox"
-                className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                required
-                />
-
-                <label
-                htmlFor="remember"
-                className="ms-2 text-sm text-gray-700"
-                >
-                I agree to the terms and conditions
-                </label>
-            </div>
+            
+            <br />
 
             {/* BUTTON */}
             <button

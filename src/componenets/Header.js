@@ -6,7 +6,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 export const Header = () => {
   const [hidden, setHidden] = useState(true);
   const [showUserMenu, setShowUserMenu] = useState(false);
-
+  const token = JSON.parse(sessionStorage.getItem("token"));
   const activeClass =
     "text-xl block py-2 px-3 text-white bg-yellow-700 rounded-sm md:bg-transparent md:text-yellow-800 md:p-0";
 
@@ -25,9 +25,19 @@ export const Header = () => {
     navigate(`/search?q=${queryTerm}`);
   };
 
+    function handleLogout() {
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("cbid");
+
+    localStorage.removeItem("reviews"); 
+
+    setShowUserMenu(false);
+    navigate("/");
+    }
+
   return (
     <header>
-      <nav className="bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-200 shadow">
+      <nav className="bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-200">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           
           {/* LOGO */}
@@ -120,37 +130,62 @@ export const Header = () => {
 
             {/* USER DROPDOWN */}
             <div className="relative">
-              <button
+            <button
                 onClick={() => setShowUserMenu(!showUserMenu)}
                 className="inline-flex items-center justify-center bg-yellow-600 hover:bg-yellow-700 rounded-lg px-4 py-2"
                 type="button"
-              >
+            >
                 <span className="bi bi-person-circle text-2xl text-white"></span>
-              </button>
+            </button>
 
-              <div
+            <div
                 className={`absolute right-0 mt-2 z-10 ${
-                  showUserMenu ? "block" : "hidden"
+                showUserMenu ? "block" : "hidden"
                 } bg-white border border-gray-200 rounded-lg shadow-lg w-44`}
-              >
+            >
                 <ul className="p-2 text-sm font-medium text-gray-700">
-                  <li>
-                    <NavLink to ="/login" className="block p-2 hover:bg-gray-100 rounded">
-                      Login
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to ="/register"className="block p-2 hover:bg-gray-100 rounded">
-                      Register
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to ="/myreviews" className="block p-2 hover:bg-gray-100 rounded">
-                      My Reviews
-                    </NavLink>
-                  </li>
+
+                {/* NOT LOGGED IN */}
+                {!token && (
+                    <>
+                    <li>
+                        <NavLink to="/login" className="block p-2 hover:bg-gray-100 rounded">
+                        Login
+                        </NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink to="/register" className="block p-2 hover:bg-gray-100 rounded">
+                        Register
+                        </NavLink>
+                    </li>
+                    </>
+                )}
+
+                {/* LOGGED IN */}
+                {token && (
+                    <>
+                    <li>
+                        <NavLink to="/myreviews" className="block p-2 hover:bg-gray-100 rounded">
+                        My Reviews
+                        </NavLink>
+                    </li>
+
+                    <li>
+                        <button
+                        onClick={() => {
+                            handleLogout();
+                            setShowUserMenu(false);
+                        }}
+                        className="block w-full text-left p-2 hover:bg-gray-100 rounded text-red-600"
+                        >
+                        Logout
+                        </button>
+                    </li>
+                    </>
+                )}
                 </ul>
-              </div>
+            </div>
             </div>
           </div>
 
