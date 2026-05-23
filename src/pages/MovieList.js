@@ -11,7 +11,7 @@ export const MovieList = ({ apiPath }) => {
           {movies.map((movie) => (
             <div
               key={movie.id}
-              className="transition-transform duration-200 delay-150 hover:scale-[1.05]"
+              className="transition-transform duration-150 delay-500 hover:scale-[1.05]"
             >
               <Card movie={movie} />
             </div>
