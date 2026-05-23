@@ -41,7 +41,7 @@ const handleDelete = (id) => {
             <Link to={`/movie/${movie.id}`}>
                 <div key={movie.id} className="bg-white p-4 rounded-xl shadow">
 
-                    <img src={movie.poster} className="rounded-lg" />
+                    <img src={movie.poster} className="rounded-lg" alt="poster" />
 
                     <h2 className="text-xl font-bold mt-2">{movie.title}</h2>
 

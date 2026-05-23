@@ -1,5 +1,4 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import Logo from "../assets/tape.png";
 import FilmScore from "../assets/filmscorelogo.png";
 import { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
