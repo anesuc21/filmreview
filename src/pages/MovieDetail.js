@@ -5,17 +5,30 @@ import Backup from "../assets/Image-not-found.png";
 export const MovieDetail = () => {
   const params = useParams();
   const [movie, setMovie] = useState(null);
+  const [providers, setProviders] = useState(null);
 
   useEffect(() => {
     async function fetchMovie() {
       const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${params.id}?api_key=fd196cf745b88f3cc1a2c478986baab5`
+        `https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.REACT_APP_API_KEY}`
       );
       const json = await response.json();
       setMovie(json);
     }
 
+    async function fetchProviders() {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${params.id}/watch/providers?api_key=${process.env.REACT_APP_API_KEY}`
+      );
+
+      const json = await response.json();
+
+      // 🇦🇺 use Australia region
+      setProviders(json.results?.AU);
+    }
+
     fetchMovie();
+    fetchProviders();
   }, [params.id]);
 
   if (!movie) {
@@ -77,6 +90,30 @@ export const MovieDetail = () => {
             <span className="font-semibold mr-2">Release Date:</span>
             <span>{movie.release_date}</span>
           </p>
+
+          {/* WATCH PROVIDERS */}
+          <div className="mt-6">
+            <h2 className="text-xl font-semibold mb-3">
+              Where to Watch
+            </h2>
+
+            {providers?.flatrate ? (
+              <div className="flex flex-wrap gap-2">
+                {providers.flatrate.map((p) => (
+                  <span
+                    key={p.provider_id}
+                    className="bg-green-600 text-white px-3 py-1 rounded-lg text-sm"
+                  >
+                    {p.provider_name}
+                  </span>
+                ))}
+              </div>
+            ) : (
+              <p className="text-gray-500">
+                Not available on streaming in your region.
+              </p>
+            )}
+          </div>
 
           {/* ⭐ USER REVIEW SECTION */}
           {userReview ? (

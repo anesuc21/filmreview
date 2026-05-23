@@ -8,10 +8,10 @@ export const Header = () => {
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   const activeClass =
-    "text-xl block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-400 md:p-0";
+    "text-xl block py-2 px-3 text-white bg-yellow-700 rounded-sm md:bg-transparent md:text-yellow-800 md:p-0";
 
   const inActiveClass =
-    "text-xl block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-black";
+    "text-xl block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-yellow-800 md:p-0 dark:text-black";
 
   const navigate = useNavigate();
 
@@ -122,7 +122,7 @@ export const Header = () => {
             <div className="relative">
               <button
                 onClick={() => setShowUserMenu(!showUserMenu)}
-                className="inline-flex items-center justify-center bg-blue-500 hover:bg-blue-200 rounded-lg px-4 py-2"
+                className="inline-flex items-center justify-center bg-yellow-600 hover:bg-yellow-700 rounded-lg px-4 py-2"
                 type="button"
               >
                 <span className="bi bi-person-circle text-2xl text-white"></span>
@@ -172,7 +172,9 @@ export const Header = () => {
               </form>
             </div>
 
-            <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium text-lg border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent">
+            <ul className="flex flex-col p-4 md:p-0 mt-4 font-bold tracking-wide text-xl border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent"
+                style={{ fontFamily: "Calisto MT, serif" }}
+            >
               <li>
                 <NavLink
                   to="/"
