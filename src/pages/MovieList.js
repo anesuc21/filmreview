@@ -1,6 +1,6 @@
 import { Card } from "../componenets";
 import { useFetch } from "../hooks/useFetch";
-
+//this class produces the list of all movies on the page
 export const MovieList = ({ apiPath }) => {
   const { data: movies } = useFetch(apiPath);
 

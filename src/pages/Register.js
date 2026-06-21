@@ -13,7 +13,7 @@ export const Register = () => {
         password: event.target.password.value,
     };
 
-    const response = await fetch("http://localhost:8000/register", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/register`, {
         method: "POST",
         headers: {
         "content-Type": "application/json",
